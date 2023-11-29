@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7628b3c2d7aaf248ba1a81d27161a8d, type: 3}
+  m_Name: Ball
+  m_EditorClassIdentifier: 
+  Phonics:
+  - {fileID: 7215717285130267031, guid: 76f657654571e0c4bbb244ef644f85d9, type: 3}
+  - {fileID: 6032415726128939001, guid: 97aa522d1f1d11343b8b55d3e76d52d3, type: 3}
+  - {fileID: 8410197976913972199, guid: 977555565282ac444be03c9414f3e805, type: 3}
+  PhonicsSound:
+  - {fileID: 11400000, guid: 5714dce6223723d47b60e648e328fabd, type: 2}
+  - {fileID: 11400000, guid: 3ff132be181d16b41b3475830e0ff846, type: 2}
+  - {fileID: 11400000, guid: fe6134ce2e49ac342b05224799876d43, type: 2}
+  - {fileID: 11400000, guid: 9a2e540b20cf82544b6296bfd5151fca, type: 2}
+  WordBox: {fileID: 1342580476015878906, guid: 70561611b328f5045a513b20790c19bd, type: 3}

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7628b3c2d7aaf248ba1a81d27161a8d, type: 3}
+  m_Name: Jam
+  m_EditorClassIdentifier: 
+  Phonics:
+  - {fileID: 4062162458193627556, guid: 61dae23a89ef51d41af0f93fc3947476, type: 3}
+  - {fileID: 6032415726128939001, guid: 97aa522d1f1d11343b8b55d3e76d52d3, type: 3}
+  - {fileID: 4547077510780114615, guid: c8457665267049048b79249d673adacb, type: 3}
+  PhonicsSound:
+  - {fileID: 11400000, guid: f89af1ca889e3c2478b95a25cfcc5395, type: 2}
+  - {fileID: 11400000, guid: 2920bb1e367dd4449bdc735ddcf9164a, type: 2}
+  - {fileID: 11400000, guid: 79a370d79fc72d34aa1fbb8140d7b792, type: 2}
+  - {fileID: 11400000, guid: 583075e6ef1773947aeecf07115c2b70, type: 2}
+  WordBox: {fileID: 503437792471711489, guid: ce17184a858c5b54b8e447b1d4a18a39, type: 3}

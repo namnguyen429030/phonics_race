@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7628b3c2d7aaf248ba1a81d27161a8d, type: 3}
+  m_Name: Ship
+  m_EditorClassIdentifier: 
+  Phonics:
+  - {fileID: 5279414879065667654, guid: eb67abfd28b3ccc4ea45f3a04a63cc72, type: 3}
+  - {fileID: 6675518032009669960, guid: 41cd3656e6d5a3544be1f22c3128f5c7, type: 3}
+  - {fileID: 314125484224865572, guid: 505458f4c8e27d74f912fd85966f6305, type: 3}
+  PhonicsSound:
+  - {fileID: 11400000, guid: 79474e691a5d6504380ec0c0bdb6d2f1, type: 2}
+  - {fileID: 11400000, guid: 444e32103736a1c4bb73569c43c6dc45, type: 2}
+  - {fileID: 11400000, guid: 8069ed7ee268c1240867f9d494355067, type: 2}
+  - {fileID: 11400000, guid: c649cfcd4082b1941b75acc253e7ee50, type: 2}
+  WordBox: {fileID: 6934812161951012761, guid: 31704a0a8f865d04bbc348bd1d2a0323, type: 3}
