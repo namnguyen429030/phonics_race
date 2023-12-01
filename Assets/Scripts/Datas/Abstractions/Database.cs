@@ -18,5 +18,9 @@ namespace Assets.Scripts.Datas.Abstractions
         {
             return Objects[index];
         }
+        public T[] GetObjects()
+        {
+            return (T[])Objects.Clone();
+        }
     }
 }

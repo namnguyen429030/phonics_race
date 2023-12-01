@@ -12,6 +12,20 @@ namespace Assets.Scripts.Abtractions.Singletons.Managers.SelectionManagers
     {
         [SerializeField] protected WordDatabase Words;
         [SerializeField] protected VehicleDatabase<T2> Vehicles;
-        protected abstract void Start();
+        public Word SelectedWord { get; protected set; }
+        public T2[] SelectedVehicles { get; protected set; }
+        public Vehicle SelectedVehicle { get; protected set; }
+        protected void Start()
+        {
+            DontDestroyOnLoad(this);
+            SelectWord();
+            SelectVehicles();
+        }
+        protected abstract void SelectWord();
+        protected abstract void SelectVehicles();
+        public void SelectVehicle(int index)
+        {
+            SelectedVehicle = SelectedVehicles[index];
+        }
     }
 }
