@@ -3,7 +3,7 @@ using Assets.Scripts.Datas.ScriptableObjects;
 using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers
+namespace Assets.Scripts.Concretes.Singletons.Managers
 {
     public class WordBoxManager : Manager<WordBoxManager>
     {

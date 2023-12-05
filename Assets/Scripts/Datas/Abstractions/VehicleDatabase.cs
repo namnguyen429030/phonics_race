@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assets.Scripts.Datas.Abstractions
+﻿namespace Assets.Scripts.Datas.Abstractions
 {
     public abstract class VehicleDatabase<T> : Database<T> where T : Vehicle
     {

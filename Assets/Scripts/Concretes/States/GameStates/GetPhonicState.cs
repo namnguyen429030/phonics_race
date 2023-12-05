@@ -1,8 +1,5 @@
 ﻿using Assets.Scripts.Abtractions.States;
-using Assets.Scripts.Concretes.Singletons.Managers.MovingManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.MovingManagers.AnimatedObjectManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.SpawnManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers;
+using Assets.Scripts.Concretes.Singletons.Managers;
 using Assets.Scripts.Concretes.Singletons.StateMachines;
 using Assets.Scripts.Enums;
 using System.Collections;

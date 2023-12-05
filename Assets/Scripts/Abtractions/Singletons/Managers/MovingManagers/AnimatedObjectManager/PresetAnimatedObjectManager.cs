@@ -1,12 +1,4 @@
-﻿using Assets.Scripts.Abtractions.Singletons.Managers;
-using Assets.Scripts.Abtractions.Singletons.Managers.MovingManagers;
-using Spine.Unity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using Spine.Unity;
 
 namespace Assets.Scripts.Abtractions.Singletons.Managers
 {

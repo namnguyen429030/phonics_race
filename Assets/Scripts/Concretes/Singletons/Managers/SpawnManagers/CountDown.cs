@@ -1,11 +1,6 @@
-﻿using Assets.Scripts.Abtractions.Singletons.Managers.SpawnManagers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets.Scripts.Abtractions.Singletons.Managers;
 
-namespace Assets.Scripts.Concretes.Singletons.Managers.SpawnManagers
+namespace Assets.Scripts.Concretes.Singletons.Managers
 {
     public class CountDown : SpawnManager<CountDown>
     {

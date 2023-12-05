@@ -1,17 +1,8 @@
 ﻿using Assets.Scripts.Abtractions.Behaviours;
-using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers;
+using Assets.Scripts.Concretes.Singletons.Managers;
 using Assets.Scripts.Enums.UIs;
-using Assets.Scripts.Implementations;
-using Assets.Scripts.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
 
-namespace Assets.Scripts.Concretes.Behaviours.SettingPanelBehaviours
+namespace Assets.Scripts.Concretes.Behaviours
 {
     public class SoundSettingsPanelBehaviour : SettingsPanelBehaviour
     {

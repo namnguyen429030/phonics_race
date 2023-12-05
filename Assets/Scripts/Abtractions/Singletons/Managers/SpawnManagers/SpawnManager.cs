@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.Scripts.Abtractions.Singletons.Managers.SpawnManagers
+namespace Assets.Scripts.Abtractions.Singletons.Managers
 {
     public abstract class SpawnManager<T> : Manager<T> where T : class
     {

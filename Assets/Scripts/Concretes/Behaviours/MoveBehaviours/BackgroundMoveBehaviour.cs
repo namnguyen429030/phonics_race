@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.Scripts.Concretes.Behaviours.MoveBehaviours
-{
+namespace Assets.Scripts.Concretes.Behaviours
+{   
     public class BackgroundMoveBehaviour : MoveBehaviour
     {
         Renderer _renderer;
@@ -18,10 +18,6 @@ namespace Assets.Scripts.Concretes.Behaviours.MoveBehaviours
         protected override void Move()
         {
             _renderer.material.mainTextureOffset += new Vector2(Time.deltaTime * Velocity, 0f);
-        }
-        public override void MoveToTarget()
-        {
-            
         }
     }
 }

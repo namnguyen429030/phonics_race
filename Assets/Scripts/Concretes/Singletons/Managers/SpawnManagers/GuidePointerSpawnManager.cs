@@ -1,12 +1,7 @@
-﻿using Assets.Scripts.Abtractions.Singletons.Managers.SpawnManagers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets.Scripts.Abtractions.Singletons.Managers;
 using UnityEngine;
 
-namespace Assets.Scripts.Concretes.Singletons.Managers.SpawnManagers
+namespace Assets.Scripts.Concretes.Singletons.Managers
 {
     public class GuidePointerSpawnManager : SpawnManager<GuidePointerSpawnManager>
     {

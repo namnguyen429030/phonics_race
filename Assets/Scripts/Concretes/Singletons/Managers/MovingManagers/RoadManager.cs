@@ -1,6 +1,6 @@
-﻿using Assets.Scripts.Abtractions.Singletons.Managers.MovingManagers;
+﻿using Assets.Scripts.Abtractions.Singletons.Managers;
 
-namespace Assets.Scripts.Concretes.Singletons.Managers.MovingManagers
+namespace Assets.Scripts.Concretes.Singletons.Managers
 {
     public class RoadManager : MovingManager<RoadManager>
     {

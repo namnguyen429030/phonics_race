@@ -1,10 +1,6 @@
 ﻿using Assets.Scripts.Abtractions.States;
-using Assets.Scripts.Concretes.Singletons.Managers.MovingManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.MovingManagers.AnimatedObjectManagers;
+using Assets.Scripts.Concretes.Singletons.Managers;
 using Assets.Scripts.Concretes.Singletons.Managers.SpawnManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.SelectionManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers.HomePage;
 using Assets.Scripts.Concretes.Singletons.StateMachines;
 using Assets.Scripts.Dictionaries;
 using Assets.Scripts.Enums;
@@ -20,9 +16,11 @@ namespace Assets.Scripts.Concretes.States.GameStates
         protected override IEnumerator Sequence()
         {
             //Spawn cars
-            CarsSpawnManager.Instance.SetCars(CarRaceSelectionManager.Instance.SelectedVehicles[0].GetGameObject(), CarRaceSelectionManager.Instance.SelectedVehicles[1].GetGameObject(), CarRaceSelectionManager.Instance.SelectedVehicles[2].GetGameObject());
-            PhonicsSpawnManager.Instance.SetWord(CarRaceSelectionManager.Instance.SelectedWord);
-            SoundManager.Instance.SetWord(CarRaceSelectionManager.Instance.SelectedWord);
+            WordSelectionManager.Instance.SelectObject();
+
+            CarsSpawnManager.Instance.SetCars(CarSelectionManager.Instance.SelectedCars[0].GetGameObject(), CarSelectionManager.Instance.SelectedCars[1].GetGameObject(), CarSelectionManager.Instance.SelectedCars[2].GetGameObject());
+            PhonicsSpawnManager.Instance.SetWord(WordSelectionManager.Instance.SelectedObject);
+            SoundManager.Instance.SetWord(WordSelectionManager.Instance.SelectedObject);
             SoundManager.Instance.PlaySound(ESound.MainGameBGM);
             SoundManager.Instance.PlaySound(ESound.Welcome);
             CarsSpawnManager.Instance.SpawnObject();

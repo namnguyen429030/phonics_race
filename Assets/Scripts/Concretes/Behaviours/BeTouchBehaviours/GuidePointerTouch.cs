@@ -1,16 +1,7 @@
 ﻿using Assets.Scripts.Abtractions.Behaviours;
-using Assets.Scripts.Concretes.Behaviours.MoveBehaviours;
-using Assets.Scripts.Concretes.Singletons.Managers.MovingManagers.AnimatedObjectManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.SpawnManagers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.EventSystems;
+using Assets.Scripts.Concretes.Singletons.Managers;
 
-namespace Assets.Scripts.Concretes.Behaviours.BeTouchBehaviours
+namespace Assets.Scripts.Concretes.Behaviours
 {
     public class GuidePointerTouch : BeTouchBehaviour
     {

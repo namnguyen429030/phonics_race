@@ -1,13 +1,8 @@
 ﻿using Assets.Scripts.Abtractions.Singletons.Managers;
 using Assets.Scripts.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers.Abstractions
+namespace Assets.Scripts.Concretes.Singletons.Managers
 {
     public abstract class PanelsManager<T> : Manager<T> where T : class
     {

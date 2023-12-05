@@ -1,15 +1,8 @@
-﻿using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.SelectionManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers.Abstractions;
-using Assets.Scripts.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets.Scripts.Enums;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers.MainGame
+namespace Assets.Scripts.Concretes.Singletons.Managers
 {
     public class MainGameButtonsManager : ButtonsManager<MainGameButtonsManager>
     {
@@ -44,7 +37,6 @@ namespace Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManager
         }
         private void NextPhonic()
         {
-            CarRaceSelectionManager.Instance.SelectWord();
             SceneManager.LoadSceneAsync("MainGame");
         }
     }

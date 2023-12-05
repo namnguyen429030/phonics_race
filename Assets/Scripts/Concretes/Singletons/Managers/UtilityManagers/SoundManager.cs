@@ -1,15 +1,12 @@
 ﻿using Assets.Scripts.Abtractions.Singletons.Managers;
-using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers;
 using Assets.Scripts.Datas.ScriptableObjects;
 using Assets.Scripts.Enums;
-using Assets.Scripts.Enums.UIs;
 using Assets.Scripts.Implementations;
 using Assets.Scripts.Interfaces;
-using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers
+namespace Assets.Scripts.Concretes.Singletons.Managers
 {
     public class SoundManager : Manager<SoundManager>
     {

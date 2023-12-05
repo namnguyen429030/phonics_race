@@ -1,8 +1,7 @@
 ﻿using Assets.Scripts.Abtractions.Singletons.Managers;
-using Assets.Scripts.Abtractions.Singletons.Managers.MovingManagers;
 using UnityEngine;
 
-namespace Assets.Scripts.Concretes.Singletons.Managers.MovingManagers.AnimatedObjectManagers
+namespace Assets.Scripts.Concretes.Singletons.Managers
 {
     public class SelectedCarManager : CarManager<SelectedCarManager>
     {

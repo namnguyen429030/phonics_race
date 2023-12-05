@@ -1,21 +1,10 @@
 ﻿using Assets.Scripts.Abtractions.States;
-using Assets.Scripts.Concretes.Singletons.Managers.MovingManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.MovingManagers.AnimatedObjectManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.SpawnManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.SelectionManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers.MainGame;
+using Assets.Scripts.Concretes.Singletons.Managers;
 using Assets.Scripts.Dictionaries;
 using Assets.Scripts.Enums;
 using Assets.Scripts.Implementations;
 using Assets.Scripts.Interfaces;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Unity;
 using UnityEngine;
 
 namespace Assets.Scripts.Concretes.States.GameStates
@@ -44,7 +33,7 @@ namespace Assets.Scripts.Concretes.States.GameStates
             yield return new WaitForSeconds(2f);
             yield return StartCoroutine(WordBoxManager.Instance.RevealEnding());
             IDataManage<PlayerGameData> dataManage = new PlayerDataManage();
-            PlayerGameData playerGameData = new PlayerGameData(CarRaceSelectionManager.Instance.GetCurrentWordIndex());
+            PlayerGameData playerGameData = new PlayerGameData(WordSelectionManager.Instance.SelectedIndex);
             dataManage.Save(playerGameData);
             yield return new WaitForSeconds(2f);
             MainGameButtonsManager.Instance.ShowButton(EGameButton.NextPhonicButton, true);

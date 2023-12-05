@@ -1,7 +1,6 @@
-﻿using Assets.Scripts.Abtractions.Singletons.Managers.SpawnManagers;
-using UnityEngine;
+﻿using Assets.Scripts.Abtractions.Singletons.Managers;
 
-namespace Assets.Scripts.Concretes.Singletons.Managers.SpawnManagers
+namespace Assets.Scripts.Concretes.Singletons.Managers
 {
     public class EnergyBoostSpawnManager : SpawnManager<EnergyBoostSpawnManager>
     {

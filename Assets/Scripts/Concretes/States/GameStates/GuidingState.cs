@@ -1,16 +1,8 @@
 ﻿using Assets.Scripts.Abtractions.States;
-using Assets.Scripts.Concretes.Singletons.Managers.MovingManagers.AnimatedObjectManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.MovingManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.SpawnManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers;
 using Assets.Scripts.Enums;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
+using Assets.Scripts.Concretes.Singletons.Managers;
 
 namespace Assets.Scripts.Concretes.States.GameStates
 {

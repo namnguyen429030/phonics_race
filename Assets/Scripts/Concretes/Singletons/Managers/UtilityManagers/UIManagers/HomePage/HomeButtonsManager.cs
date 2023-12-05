@@ -1,9 +1,8 @@
-﻿using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers.Abstractions;
-using Assets.Scripts.Enums;
+﻿using Assets.Scripts.Enums;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers.HomePage
+namespace Assets.Scripts.Concretes.Singletons.Managers
 {
     public class HomeButtonsManager : ButtonsManager<HomeButtonsManager>
     {

@@ -1,9 +1,8 @@
-﻿using Assets.Scripts.Abtractions.Singletons.Managers.SpawnManagers;
-using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers;
+﻿using Assets.Scripts.Abtractions.Singletons.Managers;
 using Assets.Scripts.Datas.ScriptableObjects;
 using UnityEngine;
 
-namespace Assets.Scripts.Concretes.Singletons.Managers.SpawnManagers
+namespace Assets.Scripts.Concretes.Singletons.Managers
 {
     public class PhonicsSpawnManager : SpawnManager<PhonicsSpawnManager>
     {

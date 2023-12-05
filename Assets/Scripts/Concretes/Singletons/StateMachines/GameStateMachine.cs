@@ -1,7 +1,6 @@
-﻿using Assets.Scripts.Abtractions.Singletons.StateMachines;
+﻿using Assets.Scripts.Abtractions.Singletons;
 using Assets.Scripts.Abtractions.States;
 using Assets.Scripts.Concretes.States.GameStates;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Concretes.Singletons.StateMachines

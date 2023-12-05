@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace Assets.Scripts.Abtractions.Singletons.StateMachines
+namespace Assets.Scripts.Abtractions.Singletons
 {
     public abstract class StateMachine<T1, T2> : Singleton<T1> where T1 : class where T2 : State
     {

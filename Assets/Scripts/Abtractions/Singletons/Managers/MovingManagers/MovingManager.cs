@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.Scripts.Abtractions.Singletons.Managers.MovingManagers
+namespace Assets.Scripts.Abtractions.Singletons.Managers
 {
     public abstract class MovingManager<T> : Manager<T> where T : class
     {

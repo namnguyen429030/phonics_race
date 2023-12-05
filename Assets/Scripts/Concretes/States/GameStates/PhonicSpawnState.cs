@@ -1,12 +1,7 @@
 ﻿using Assets.Scripts.Abtractions.States;
-using Assets.Scripts.Concretes.Singletons.Managers.SpawnManagers;
+using Assets.Scripts.Concretes.Singletons.Managers;
 using Assets.Scripts.Concretes.Singletons.StateMachines;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Assets.Scripts.Concretes.States.GameStates

@@ -1,15 +1,7 @@
-﻿using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers.Abstractions;
-using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers.HomePage;
-using Assets.Scripts.Enums.UIs;
+﻿using Assets.Scripts.Enums.UIs;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.Audio;
 
-namespace Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers
+namespace Assets.Scripts.Concretes.Singletons.Managers
 {
     public class SoundSlidersManager : SlidersManager<SoundSlidersManager>
     {
