@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Blue Car
   m_EditorClassIdentifier: 
   GameObject: {fileID: 7851772476969906294, guid: 1dd9532cc84b4e34b811782c109a3fa2, type: 3}
-  UIGameObject: {fileID: 782037705755172055, guid: 7984e234fbc00be4facf7c5c77d78e71, type: 3}
+  SelectPageGameObject: {fileID: 7851772476969906294, guid: 98e130eec3c72974f9c40519a6becd23, type: 3}

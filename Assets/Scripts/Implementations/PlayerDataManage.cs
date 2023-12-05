@@ -9,26 +9,29 @@ using UnityEngine;
 
 namespace Assets.Scripts.Implementations
 {
-    public class PlayerDataManage : IDataManage<PlayerData>
+    public class PlayerDataManage : IDataManage<PlayerGameData>
     {
-        public PlayerData Load()
+        public PlayerGameData Load()
         {
-            string destination = Application.persistentDataPath + FileLocation.DATAFOLDER + FileLocation.PLAYERDATAFILE;
+            string destination = Application.persistentDataPath + FileLocation.DATAFOLDER;
             if (Directory.Exists(destination))
             {
+                destination += FileLocation.PLAYERDATAFILE;
                 string jsonData = File.ReadAllText(destination);
-                return JsonUtility.FromJson<PlayerData>(jsonData);
+                PlayerGameData playerGameData = JsonUtility.FromJson<PlayerGameData>(jsonData);
+                Debug.Log(playerGameData.currentWordIndex);
+                return playerGameData;
             }
-            return new PlayerData(DateTime.Now.TimeOfDay);
+            return new PlayerGameData();
         }
 
-        public void Save(PlayerData data)
+        public void Save(PlayerGameData data)
         {
             string playerData = JsonUtility.ToJson(data);
-            string path = Application.persistentDataPath + "/SaveData";
-            if(!Directory.Exists(FileLocation.DATAFOLDER)) 
+            string path = Application.persistentDataPath + FileLocation.DATAFOLDER;
+            if(!Directory.Exists(path)) 
             {
-                Directory.CreateDirectory(FileLocation.DATAFOLDER);
+                Directory.CreateDirectory(path);
             }
             File.WriteAllText(path + FileLocation.PLAYERDATAFILE, playerData);
         }

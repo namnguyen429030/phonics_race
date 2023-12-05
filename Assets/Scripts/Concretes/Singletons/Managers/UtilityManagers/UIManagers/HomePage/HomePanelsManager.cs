@@ -1,4 +1,6 @@
 ﻿using Assets.Scripts.Abtractions.Singletons.Managers;
+using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers.Abstractions;
+using Assets.Scripts.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +10,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers.HomePage
 {
-    public class HomePanelsManager : Manager<HomePanelsManager>
+    public class HomePanelsManager : PanelsManager<HomePanelsManager>
     {
-        [SerializeField] GameObject settingPanel;
-        public void ShowSetting(bool status)
-        {
-            settingPanel.SetActive(status);
-        }
     }
 }

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Orange Car
   m_EditorClassIdentifier: 
   GameObject: {fileID: 4982790393561876196, guid: b6e2fd66066b49f4e940eab102b782c0, type: 3}
-  UIGameObject: {fileID: 782037705755172055, guid: 8c5d752681f92084c9452b026b01d452, type: 3}
+  SelectPageGameObject: {fileID: 4982790393561876196, guid: 09dd49e0e740d8d49a95e598be9de086, type: 3}

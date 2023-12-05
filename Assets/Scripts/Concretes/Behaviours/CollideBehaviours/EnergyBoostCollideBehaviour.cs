@@ -14,6 +14,7 @@ namespace Assets.Scripts.Concretes.Behaviours.CollideBehaviours
             if(collider.gameObject.CompareTag("Car"))
             {
                 SoundManager.Instance.PlaySound(ESound.CollectingBoostSfx);
+                SelectedCarManager.Instance.SetAnimation(SelectedCarManager.Instance.Animations[ECarAnimation.PreEnergyBoost]);
                 EnergyBoostSpawnManager.Instance.RecallObject();
                 SelectedCarManager.Instance.SetVelocity(20f);
                 SecondCarManager.Instance.SetVelocity(25f);

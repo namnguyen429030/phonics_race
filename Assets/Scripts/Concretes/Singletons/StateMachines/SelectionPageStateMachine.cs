@@ -6,31 +6,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Concretes.Singletons.StateMachines
 {
     public class SelectionPageStateMachine : StateMachine<SelectionPageStateMachine, SelectionPageState>
     {
-        public int selection;
+        void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            HandleStartState();
+        }
         public void HandleStartState()
         {
             Destroy(CurrentState.GetComponent<State>());
             CurrentState.AddComponent<StartState>();
         }
-        public void HandleSelectState()
-        {
-            Destroy(CurrentState.GetComponent<State>());
-            CurrentState.AddComponent<SelectState>();
-        }
         public void HandleConfirmState()
         {
             Destroy(CurrentState.GetComponent<State>());
             CurrentState.AddComponent<ConfirmState>();
-        }
-        public void HandleEndState()
-        {
-            Destroy(CurrentState.GetComponent<State>());
-            CurrentState.AddComponent<EndState>();
         }
     }
 }

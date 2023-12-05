@@ -1,40 +1,41 @@
 ﻿using Assets.Scripts.Abtractions.Singletons.Managers.SelectionManagers;
+using Assets.Scripts.Datas.ConcretesConcretes;
 using Assets.Scripts.Datas.ScriptableObjects;
 using Assets.Scripts.Implementations;
 using Assets.Scripts.Interfaces;
 using System;
+using UnityEngine;
 
 namespace Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.SelectionManagers
 {
     public class CarRaceSelectionManager : SelectionManager<CarRaceSelectionManager, Car>
     {
-        IDataManage<PlayerData> playerDataManager;
+        IDataManage<PlayerGameData> playerDataManager;
         protected override void SelectVehicles()
         {
             Car[] cars = Vehicles.GetObjects();
-            for(int i = cars.Length - 1; i > -1; i--)
+            for (int i = cars.Length - 1; i > -1; i--)
             {
                 int index = UnityEngine.Random.Range(0, i - 1);
-                Car car = cars[index];
-                cars[i] = cars[index];
-                cars[index] = car;
+                (cars[i], cars[index]) = (cars[index], cars[i]);
+            }
+            for (int i = 0; i < cars.Length; i++)
+            {
+                cars[i].GetSelectPageGameObject().name = cars[i].name + "_" + i;
             }
             Array.Copy(cars, SelectedVehicles, 3);
         }
 
-        protected override void SelectWord()
+        public override void SelectWord()
         {
             playerDataManager = new PlayerDataManage();
-            PlayerData playerData = playerDataManager.Load();
-            if(playerData.currentWordIndex != -1)
+            PlayerGameData playerData = playerDataManager.Load();
+            selectedWordIndex = playerData.currentWordIndex + 1;
+            if(selectedWordIndex == Words.Count)
             {
-                SelectedWord = Words.SelectObject(playerData.currentWordIndex);
+                selectedWordIndex = 0;
             }
-            else
-            {
-                SelectedWord = Words.SelectObject(0);
-            }
+            SelectedWord = Words.SelectObject(selectedWordIndex);
         }
-
     }
 }

@@ -16,7 +16,7 @@ namespace Assets.Scripts.Datas.ScriptableObjects
         [SerializeField] bool isLoop;
         [SerializeField] bool playOnAwake;
         public AudioClip GetAudioClip() { return audioClip; }
-        public AudioMixerGroup GetMixer() {  return mixer; }
+        public AudioMixerGroup GetMixer() { return mixer; }
         public bool IsLoop() { return isLoop; }
         public bool PlayOnAwake() { return playOnAwake; }
     }

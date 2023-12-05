@@ -15,4 +15,4 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 059aad2b15a23c74bb776bcec23d284a, type: 3}
   mixer: {fileID: 2000617158099968087, guid: 5639405333aa1514a9e1a451fe6324f0, type: 2}
   isLoop: 1
-  playWhenAwake: 1
+  playOnAwake: 1

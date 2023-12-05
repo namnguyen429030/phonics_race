@@ -1,53 +1,47 @@
-﻿using Assets.Scripts.Abtractions.Singletons.Managers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers.Abstractions;
+using Assets.Scripts.Enums;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers.HomePage
 {
-    public class HomeButtonsManager : Manager<HomeButtonsManager>
+    public class HomeButtonsManager : ButtonsManager<HomeButtonsManager>
     {
-        [SerializeField] GameObject PlayButton, SettingButton, QuitSettingButton, QuitButton, HideUIButton, ShowUIButton;
-        Button playButton, settingButton, quitSettingButton, quitButton, hideUIButton, showUIButton;
-        private void Start()
+        protected override void Init()
         {
-            playButton = PlayButton.GetComponent<Button>();
-            settingButton = SettingButton.GetComponent<Button>();
-            quitSettingButton = QuitSettingButton.GetComponent<Button>();
-            quitButton = QuitButton.GetComponent<Button>();
-            hideUIButton = HideUIButton.GetComponent<Button>();
-            showUIButton = ShowUIButton.GetComponent<Button>();
-            playButton.onClick.AddListener(() => Play());
-            quitButton.onClick.AddListener(() => Quit());
-            settingButton.onClick.AddListener(() => ShowSetting(true));
-            quitSettingButton.onClick.AddListener(() => ShowSetting(false));
-            hideUIButton.onClick.AddListener(() => ShowUI(false));
-            showUIButton.onClick.AddListener(()=> ShowUI(true));
+            _buttons[(int)EHomeButton.PlayButton].onClick.AddListener(Play);
+            _buttons[(int)EHomeButton.QuitButton].onClick.AddListener(Quit);
+            _buttons[(int)EHomeButton.SettingButton].onClick.AddListener(() => ShowSetting(true));
+            _buttons[(int)EHomeButton.QuitSettingButton].onClick.AddListener(() => ShowSetting(false));
+            _buttons[(int)EHomeButton.HideUIButton].onClick.AddListener(() => ShowUI(false));
+            _buttons[(int)EHomeButton.ShowUIButton].onClick.AddListener(() => ShowUI(true));
         }
-        public void Play()
+        private void Play()
         {
             SceneManager.LoadSceneAsync("SelectPage");
+            SoundManager.Instance.StopAll();
         }
-        public void Quit()
+        private void Quit()
         {
             Application.Quit();
         }
-        public void ShowSetting(bool status)
+        private void ShowSetting(bool status)
         {
-            HomePanelsManager.Instance.ShowSetting(status);
+            HomePanelsManager.Instance.ShowPanel(EHomePanel.SettingPanel,status);
         }
-        public void ShowUI(bool status)
+        private void ShowUI(bool status)
         {
-            PlayButton.SetActive(status);
-            SettingButton.SetActive(status);
-            QuitButton.SetActive(status);
-            HideUIButton.SetActive(status);
-            ShowUIButton.SetActive(!status);
+            for (int i = 0; i < Buttons.Length; i++)
+            {
+                if (i == (int)EHomeButton.ShowUIButton)
+                {
+                    Buttons[i].SetActive(!status);
+                }
+                else
+                {
+                    Buttons[i].SetActive(status);
+                }
+            }
         }
     }
 }

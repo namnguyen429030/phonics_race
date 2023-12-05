@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Abtractions.Singletons.Managers.SpawnManagers;
 using Assets.Scripts.Concretes.Singletons.Managers.MovingManagers.AnimatedObjectManagers;
+using Assets.Scripts.Datas.ScriptableObjects;
 using UnityEngine;
 
 namespace Assets.Scripts.Concretes.Singletons.Managers.SpawnManagers

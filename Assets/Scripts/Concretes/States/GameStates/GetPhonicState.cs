@@ -14,6 +14,7 @@ namespace Assets.Scripts.Concretes.States.GameStates
     {
         protected override IEnumerator Sequence()
         {
+            SelectedCarManager.Instance.ResetCount();
             PhonicsSpawnManager.Instance.RecallObject();
 
             WordBoxManager.Instance.Reveal();
@@ -23,6 +24,7 @@ namespace Assets.Scripts.Concretes.States.GameStates
             yield return new WaitForSeconds(5f);
 
             SelectedCarManager.Instance.CanSwitchLane = false;
+            SelectedCarManager.Instance.UpRank();
             SelectedCarManager.Instance.SetAnimation(SelectedCarManager.Instance.Animations[ECarAnimation.PreSelfBoost]);
             SelectedCarManager.Instance.SetVelocity(10f);
             ThirdCarManager.Instance.SetVelocity(0f);

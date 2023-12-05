@@ -6,15 +6,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts.Abtractions.Singletons.Managers.MovingManagers
 {
     public abstract class CarManager<T> : NonPresetAnimatedObjectManager<T> where T:class
     {
         public IReadOnlyDictionary<ECarAnimation, string> Animations { get; private set; }
-        protected override void Start()
+        public override void SetObject(GameObject _gameObject)
         {
-            base.Start();
+            base.SetObject(_gameObject);
             Animations = CarAnimation.Init(ManagedObject.name.Split(" ")[0]);
         }
     }

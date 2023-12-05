@@ -10,14 +10,14 @@ namespace Assets.Scripts.Datas.Abstractions
     public abstract class Vehicle : ScriptableObject
     {
         [SerializeField] GameObject GameObject;
-        [SerializeField] GameObject UIGameObject;
+        [SerializeField] GameObject SelectPageGameObject;
         public GameObject GetGameObject()
         {
             return GameObject;
         }
-        public GameObject GetUIGameObject()
+        public GameObject GetSelectPageGameObject()
         {
-            return UIGameObject;
+            return SelectPageGameObject;
         }
     }
 }

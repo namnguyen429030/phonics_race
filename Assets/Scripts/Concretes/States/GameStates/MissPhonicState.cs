@@ -1,4 +1,6 @@
 ﻿using Assets.Scripts.Abtractions.States;
+using Assets.Scripts.Concretes.Singletons.Managers.MovingManagers;
+using Assets.Scripts.Concretes.Singletons.Managers.MovingManagers.AnimatedObjectManagers;
 using Assets.Scripts.Concretes.Singletons.Managers.SpawnManagers;
 using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers;
 using Assets.Scripts.Concretes.Singletons.StateMachines;
@@ -15,19 +17,38 @@ namespace Assets.Scripts.Concretes.States.GameStates
 {
     public class MissPhonicState : GameState
     {
-        public static int missCount = 0;
         protected override IEnumerator Sequence()
         {
-            missCount++;
+            SelectedCarManager.Instance.AddCount();
             DisappointedCrewSpawnManager.Instance.SpawnObject();
             SoundManager.Instance.PlaySound(ESound.CrowdDisappointing);
             PhonicsSpawnManager.Instance.RecallObject();
-            yield return new WaitForSeconds(5f);
-            GameStateMachine.Instance.HandleSpawnPhonicState();
+            yield return new WaitForSeconds(7f);
             DisappointedCrewSpawnManager.Instance.RecallObject();
-            if(missCount == 3)
+            MainGameManager.Instance.SetVelocity(0);
+            SelectedCarManager.Instance.SetVelocity(0);
+            if(SelectedCarManager.Instance.Place != 3)
             {
+                SecondCarManager.Instance.SetVelocity(10f);
+                ThirdCarManager.Instance.SetVelocity(10f);
+                yield return new WaitForSeconds(6.5f);
+                SecondCarManager.Instance.SetVelocity(5f);
+                ThirdCarManager.Instance.SetVelocity(5f);
+            }
+            if (SelectedCarManager.Instance.Place < 3)
+            {
+                SelectedCarManager.Instance.DownRank();
+            }
+            MainGameManager.Instance.SetVelocity(5f);
+            SelectedCarManager.Instance.SetVelocity(5f);
+            if (SelectedCarManager.Instance.MissCount == 3)
+            {
+                Debug.Log("Start guiding");
                 GameStateMachine.Instance.HandleGuidingState();
+            }
+            else
+            {
+                GameStateMachine.Instance.HandleSpawnPhonicState();
             }
         }
     }

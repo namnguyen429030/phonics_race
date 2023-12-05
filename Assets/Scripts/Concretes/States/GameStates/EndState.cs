@@ -2,8 +2,13 @@
 using Assets.Scripts.Concretes.Singletons.Managers.MovingManagers;
 using Assets.Scripts.Concretes.Singletons.Managers.MovingManagers.AnimatedObjectManagers;
 using Assets.Scripts.Concretes.Singletons.Managers.SpawnManagers;
+using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers;
+using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.SelectionManagers;
+using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers.MainGame;
 using Assets.Scripts.Dictionaries;
 using Assets.Scripts.Enums;
+using Assets.Scripts.Implementations;
+using Assets.Scripts.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,10 +24,12 @@ namespace Assets.Scripts.Concretes.States.GameStates
     {
         protected override IEnumerator Sequence()
         {
+            MainGameButtonsManager.Instance.ShowButton(EGameButton.PauseButton, false);
             yield return new WaitForSeconds(2f);
             EnergyBoostSpawnManager.Instance.SpawnObject();
             yield return new WaitForSeconds(3f);
             MainGameManager.Instance.SetVelocity(15f);
+            SelectedCarManager.Instance.SetAnimation(SelectedCarManager.Instance.Animations[ECarAnimation.EnergyBoost]);
             yield return new WaitForSeconds(2f);
             FinishLineSpawnManager.Instance.SpawnObject();
             HappyCrewSpawnManager.Instance.SpawnObject();
@@ -32,6 +39,16 @@ namespace Assets.Scripts.Concretes.States.GameStates
             RoadManager.Instance.SetVelocity(0);
             TreesManager.Instance.SetVelocity(0f);
             MainGameManager.Instance.SetVelocity(0);
+            yield return new WaitForSeconds(4f);
+            WordBoxManager.Instance.ShowWordBox();
+            yield return new WaitForSeconds(2f);
+            yield return StartCoroutine(WordBoxManager.Instance.RevealEnding());
+            IDataManage<PlayerGameData> dataManage = new PlayerDataManage();
+            PlayerGameData playerGameData = new PlayerGameData(CarRaceSelectionManager.Instance.GetCurrentWordIndex());
+            dataManage.Save(playerGameData);
+            yield return new WaitForSeconds(2f);
+            MainGameButtonsManager.Instance.ShowButton(EGameButton.NextPhonicButton, true);
+            
         }
     }
 }

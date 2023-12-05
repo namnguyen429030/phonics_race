@@ -2,9 +2,14 @@
 using Assets.Scripts.Concretes.Singletons.Managers.MovingManagers;
 using Assets.Scripts.Concretes.Singletons.Managers.MovingManagers.AnimatedObjectManagers;
 using Assets.Scripts.Concretes.Singletons.Managers.SpawnManagers;
+using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers;
+using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.SelectionManagers;
+using Assets.Scripts.Concretes.Singletons.Managers.UtilityManagers.UIManagers.HomePage;
 using Assets.Scripts.Concretes.Singletons.StateMachines;
 using Assets.Scripts.Dictionaries;
 using Assets.Scripts.Enums;
+using Assets.Scripts.Implementations;
+using Assets.Scripts.Interfaces;
 using System.Collections;
 using UnityEngine;
 
@@ -15,16 +20,37 @@ namespace Assets.Scripts.Concretes.States.GameStates
         protected override IEnumerator Sequence()
         {
             //Spawn cars
+            CarsSpawnManager.Instance.SetCars(CarRaceSelectionManager.Instance.SelectedVehicles[0].GetGameObject(), CarRaceSelectionManager.Instance.SelectedVehicles[1].GetGameObject(), CarRaceSelectionManager.Instance.SelectedVehicles[2].GetGameObject());
+            PhonicsSpawnManager.Instance.SetWord(CarRaceSelectionManager.Instance.SelectedWord);
+            SoundManager.Instance.SetWord(CarRaceSelectionManager.Instance.SelectedWord);
+            SoundManager.Instance.PlaySound(ESound.MainGameBGM);
+            SoundManager.Instance.PlaySound(ESound.Welcome);
             CarsSpawnManager.Instance.SpawnObject();
+            yield return new WaitForSeconds(1f);
 
+            SecondCarManager.Instance.SetAnimation(SecondCarManager.Instance.Animations[ECarAnimation.NormalGo]);
+            ThirdCarManager.Instance.SetAnimation(ThirdCarManager.Instance.Animations[ECarAnimation.NormalGo]);
+            SelectedCarManager.Instance.SetAnimation(SelectedCarManager.Instance.Animations[ECarAnimation.NormalGo]);
+            SelectedCarManager.Instance.SetVelocity(7f);
+            SecondCarManager.Instance.SetVelocity(7f);
+            ThirdCarManager.Instance.SetVelocity(7f);
+            yield return new WaitForSeconds(1.25f);
+
+            SelectedCarManager.Instance.SetVelocity(0);
+            SecondCarManager.Instance.SetVelocity(0);
+            ThirdCarManager.Instance.SetVelocity(0);
             //Count down
+            CountDown.Instance.SpawnObject();
+            SoundManager.Instance.PlaySound(ESound.CountingDown);
             yield return new WaitForSeconds(1f);
             SelectedCarManager.Instance.SetAnimation(SelectedCarManager.Instance.Animations[ECarAnimation.Set]);
             SecondCarManager.Instance.SetAnimation(SecondCarManager.Instance.Animations[ECarAnimation.Set]);
             ThirdCarManager.Instance.SetAnimation(ThirdCarManager.Instance.Animations[ECarAnimation.Set]);
             yield return new WaitForSeconds(2f);
+            SoundManager.Instance.PlaySound(ESound.StartTheRace);
             RefereeManager.Instance.SetAnimation(RefereeAnimation.RefereeAnimations[ERefereeAnimation.Go]);
             yield return new WaitForSeconds(1f);
+            CountDown.Instance.RecallObject();
 
             //Second and third go
             SecondCarManager.Instance.SetAnimation(SecondCarManager.Instance.Animations[ECarAnimation.NormalGo]);
@@ -58,12 +84,20 @@ namespace Assets.Scripts.Concretes.States.GameStates
             SelectedCarManager.Instance.SetVelocity(5f);
             MainGameManager.Instance.SetVelocity(5f);
             yield return new WaitForSeconds(2f);
-            SelectedCarManager.Instance.CanSwitchLane = true;
 
+            IDataManage<PlayerGameData> dataManage = new PlayerDataManage();
+            PlayerGameData playerData = dataManage.Load();
             //If player has never played before, start guiding
-
-            //If player has played before, start spawning phonics
-            GameStateMachine.Instance.HandleSpawnPhonicState();
+            if (playerData.currentWordIndex == -1)
+            {
+                GameStateMachine.Instance.HandleTutorialState();
+            }
+            else
+            {
+                //If player has played before, start spawning phonics
+                SelectedCarManager.Instance.CanSwitchLane = true;
+                GameStateMachine.Instance.HandleSpawnPhonicState();
+            }
         }
     }
 }

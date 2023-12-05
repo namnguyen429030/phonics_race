@@ -4,6 +4,7 @@ using Assets.Scripts.Datas.Abstractions;
 using Assets.Scripts.Datas.Concretes;
 using Assets.Scripts.Datas.ConcretesConcretes;
 using Assets.Scripts.Datas.ScriptableObjects;
+using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Abtractions.Singletons.Managers.SelectionManagers
@@ -12,20 +13,36 @@ namespace Assets.Scripts.Abtractions.Singletons.Managers.SelectionManagers
     {
         [SerializeField] protected WordDatabase Words;
         [SerializeField] protected VehicleDatabase<T2> Vehicles;
+        [SerializeField] protected int totalVehicles;
         public Word SelectedWord { get; protected set; }
         public T2[] SelectedVehicles { get; protected set; }
-        public Vehicle SelectedVehicle { get; protected set; }
+        public bool isSelectable;
+        protected int selectedWordIndex;
+        protected int selectedIndex;
         protected void Start()
         {
-            DontDestroyOnLoad(this);
-            SelectWord();
+            SelectedVehicles = new T2[totalVehicles];
             SelectVehicles();
+            SelectWord();
         }
-        protected abstract void SelectWord();
+        public abstract void SelectWord();
         protected abstract void SelectVehicles();
         public void SelectVehicle(int index)
         {
-            SelectedVehicle = SelectedVehicles[index];
+            selectedIndex = index;
+        }
+        public void ConfirmSelection()
+        {
+            if (selectedIndex != 0)
+            {
+                T2 vehicle = SelectedVehicles[0];
+                SelectedVehicles[0] = SelectedVehicles[selectedIndex];
+                SelectedVehicles[selectedIndex] = vehicle;
+            }
+        }
+        public int GetCurrentWordIndex()
+        {
+            return selectedWordIndex;
         }
     }
 }

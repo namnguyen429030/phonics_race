@@ -9,28 +9,31 @@ using UnityEngine;
 
 namespace Assets.Scripts.Implementations
 {
-    public class SettingDataManage : IDataManage<PlayerSettings>
+    public class SettingDataManage : IDataManage<PlayerSoundSettings>
     {
-        public PlayerSettings Load()
+        public PlayerSoundSettings Load()
         {
-            string destination = Application.persistentDataPath + FileLocation.DATAFOLDER + FileLocation.SETTINGSDATAFILE;
+            string destination = Application.persistentDataPath + FileLocation.DATAFOLDER;
             if (Directory.Exists(destination))
             {
+                destination += FileLocation.SETTINGSDATAFILE;
                 string jsonData = File.ReadAllText(destination);
-                return JsonUtility.FromJson<PlayerSettings>(jsonData);
+                return JsonUtility.FromJson<PlayerSoundSettings>(jsonData);
             }
-            return new PlayerSettings();
+            return new PlayerSoundSettings(1,1,1,1);
         }
 
-        public void Save(PlayerSettings data)
+        public void Save(PlayerSoundSettings data)
         {
+            Debug.Log("saved");
             string settingsData = JsonUtility.ToJson(data);
-            string path = Application.persistentDataPath + "/SaveData";
-            if (!Directory.Exists(FileLocation.DATAFOLDER))
+            string path = Application.persistentDataPath + FileLocation.DATAFOLDER;
+            if (!Directory.Exists(path))
             {
-                Directory.CreateDirectory(FileLocation.DATAFOLDER);
+                Directory.CreateDirectory(path);
             }
-            File.WriteAllText(path + FileLocation.PLAYERDATAFILE, settingsData);
+            path += FileLocation.SETTINGSDATAFILE;
+            File.WriteAllText(path, settingsData);
         }
     }
 }

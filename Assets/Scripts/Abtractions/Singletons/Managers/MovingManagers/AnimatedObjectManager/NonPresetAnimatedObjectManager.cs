@@ -13,7 +13,7 @@ namespace Assets.Scripts.Abtractions.Singletons.Managers
 {
     public abstract class NonPresetAnimatedObjectManager<T> : AnimatedObjectManager<T> where T : class
     {
-        public void SetObject(GameObject _gameObject)
+        public virtual void SetObject(GameObject _gameObject)
         {
             ManagedObject = _gameObject;
             ObjectMovement = ManagedObject.GetComponent<MoveBehaviour>();

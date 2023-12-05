@@ -2,12 +2,23 @@
 using Assets.Scripts.Abtractions.States;
 using Assets.Scripts.Concretes.States.GameStates;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Concretes.Singletons.StateMachines
 {
     public class GameStateMachine : StateMachine<GameStateMachine, GameState>
     {
-        private void Start()
+        public PlayerGameData PlayerGameData { get; private set; }
+        void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             HandleStartState();
         }

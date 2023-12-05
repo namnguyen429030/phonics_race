@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Pink Car
   m_EditorClassIdentifier: 
   GameObject: {fileID: 1069618602419594302, guid: 0b3ccc67ce48b5c4bb2427251d18dce2, type: 3}
-  UIGameObject: {fileID: 782037705755172055, guid: 86d3c8b2ab5d578419f2aa8c23bf3693, type: 3}
+  SelectPageGameObject: {fileID: 1069618602419594302, guid: 1f279099306bd8942a3129f03e4b43c9, type: 3}

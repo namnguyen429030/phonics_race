@@ -27,5 +27,9 @@ namespace Assets.Scripts.Abtractions.Singletons.Managers.MovingManagers
         {
             ObjectMovement.SetVelocity(velocity);
         }
+        public void SetDirection(Vector3 direction)
+        {
+            ObjectMovement.SetDirection(direction);
+        }
     }
 }
